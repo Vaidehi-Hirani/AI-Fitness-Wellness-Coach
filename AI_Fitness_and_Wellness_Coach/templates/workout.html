@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Generate Workout</h2>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <p>Hello {{ user.name }} ({{ user.fitness_level }}) — Goal: {{ user.goal }}</p>
+  <form method="post">
+    <button type="submit">Generate Workout</button>
+  </form>
+  {% if last_plan %}
+    <h3>Last Plan</h3>
+    <pre>{{ last_plan }}</pre>
+  {% endif %}
+{% endblock %}
+

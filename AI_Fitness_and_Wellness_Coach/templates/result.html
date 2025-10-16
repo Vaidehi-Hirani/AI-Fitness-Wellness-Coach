@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ username }}'s Workout Plan</h2>
+  <pre>{{ plan }}</pre>
+  <p><a href="{{ url_for('workout') }}">Back</a></p>
+{% endblock %}
+

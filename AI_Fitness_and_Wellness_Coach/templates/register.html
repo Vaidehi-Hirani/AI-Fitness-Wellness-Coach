@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Register</h2>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <form method="post">
+    <label>Name <input name="name" required></label>
+    <label>Age <input name="age" type="number" min="10" max="100" required></label>
+    <label>Gender
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Fitness Level
+      <select name="fitness_level">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </label>
+    <label>Goal
+      <select name="goal">
+        <option>Fat Loss</option>
+        <option>Muscle Gain</option>
+        <option>Endurance</option>
+        <option>General Health</option>
+      </select>
+    </label>
+    <label>Equipment <input name="equipment" placeholder="e.g., dumbbells, bands, none"></label>
+    <label>Physical Limitations/Injuries <textarea name="physical_limitations" placeholder="e.g., knee injury, back pain, asthma, etc. (leave blank if none)" rows="3"></textarea></label>
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
+

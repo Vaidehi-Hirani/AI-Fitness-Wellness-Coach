@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>AI Coach Chat</h2>
+  <p style="color: white; text-align: center; margin-bottom: 1rem;">
+    Chat with your AI Fitness Coach - Your conversation history is saved!
+  </p>
+  
+  <div class="chat-container">
+    <div class="chat-messages" id="chatMessages">
+      {% for m in history %}
+        <div class="msg {{ m.role }}">
+          <div class="msg-header">
+            <strong>{{ m.role.title() }}</strong>
+            <span class="timestamp">{{ m.timestamp[:19] if m.timestamp else 'Now' }}</span>
+          </div>
+          <div class="msg-content">{{ m.message }}</div>
+        </div>
+      {% endfor %}
+      {% if not history %}
+        <div class="welcome-msg">
+          <p>👋 Hi {{ username }}! I'm your AI Fitness Coach. Ask me about:</p>
+          <ul>
+            <li>💪 Workout plans and exercises</li>
+            <li>🥗 Nutrition and meal planning</li>
+            <li>😴 Sleep and recovery tips</li>
+            <li>📊 Progress tracking</li>
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+    
+    <form method="post" class="chat-form">
+      <div class="input-group">
+        <input name="message" placeholder="Type your message here..." required>
+        <button type="submit"></button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+
